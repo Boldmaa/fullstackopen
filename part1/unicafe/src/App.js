@@ -6,6 +6,7 @@ function App() {
     const [neutral, setNeutral] = useState(0)
     const [bad, setBad] = useState(0)
     const [all, setAll] = useState(0)
+    const [positive, setPositive] = useState(0)
 
     const refresh = () => {
         ReactDOM.createRoot(document.getElementById('root')).render(
@@ -22,6 +23,7 @@ function App() {
         console.log('2', all_clicks);
         setAll(all_clicks);
         console.log('3', all);
+        positivePercent();
     }
 
     const neutralClick = () => {
@@ -33,6 +35,16 @@ function App() {
         setBad(bad + 1);
         setAll(good + neutral + bad);
     }
+
+    const positivePercent = () => {
+        let pos = (good * 100)/all;
+        setPositive(pos);
+    }
+    
+    const averagePercent = () => {
+      
+    }
+
 
     return (
         <div>
@@ -47,7 +59,7 @@ function App() {
             <p>bad {bad}</p>
             <p>all {all}</p>
             <p>average {all}</p>
-            <p>positive {all}</p>
+            <p>positive {positive}</p>
         </div>
     );
 }
